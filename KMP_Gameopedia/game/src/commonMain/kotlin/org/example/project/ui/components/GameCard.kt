@@ -97,23 +97,27 @@ fun GameCard(
             }
             
             // Platforms
-            if (!game.platforms.isNullOrEmpty()) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Platforms: ${game.platforms.take(3).joinToString(", ") { it.name }}${if (game.platforms.size > 3) "..." else ""}",
-                    fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+            game.platforms?.let { platforms ->
+                if (platforms.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "Platforms: ${platforms.take(3).joinToString(", ") { it.name }}${if (platforms.size > 3) "..." else ""}",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
             
             // Genres
-            if (!game.genres.isNullOrEmpty()) {
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = "Genres: ${game.genres.take(2).joinToString(", ") { it.name }}${if (game.genres.size > 2) "..." else ""}",
-                    fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+            game.genres?.let { genres ->
+                if (genres.isNotEmpty()) {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "Genres: ${genres.take(2).joinToString(", ") { it.name }}${if (genres.size > 2) "..." else ""}",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
         }
     }

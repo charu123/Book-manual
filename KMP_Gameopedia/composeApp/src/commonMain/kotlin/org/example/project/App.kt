@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.ktor.client.*
 import org.example.project.data.Game
 import org.example.project.network.HttpClientProvider
 import org.example.project.network.GameService
@@ -126,7 +127,7 @@ fun GameOpediaScreen(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = uiState.errorMessage,
+                            text = uiState.errorMessage ?: "Unknown error",
                             color = MaterialTheme.colorScheme.onErrorContainer
                         )
                         Spacer(modifier = Modifier.height(16.dp))
